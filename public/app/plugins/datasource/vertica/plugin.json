@@ -2,6 +2,7 @@
   "type": "datasource",
   "name": "Vertica",
   "id": "vertica",
+  "category": "sql",
 
   "info": {
     "description": "Micro Focus Vertica Data Source for Grafana",
@@ -23,5 +24,4 @@
   "queryOptions": {
     "minInterval": true
   }
-
 }
