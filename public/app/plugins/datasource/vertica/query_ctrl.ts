@@ -87,9 +87,9 @@ export class VerticaQueryCtrl extends QueryCtrl {
       this.tableSegment = uiSegmentSrv.newSegment({ value: 'select table', fake: true });
     } else {
       if (this.target.table.includes('.')) {
-          const parts = this.target.table.split('.');
-          this.schemaSegment = uiSegmentSrv.newSegment(parts[0]);
-          this.tableSegment = uiSegmentSrv.newSegment(parts[1]);
+        const parts = this.target.table.split('.');
+        this.schemaSegment = uiSegmentSrv.newSegment(parts[0]);
+        this.tableSegment = uiSegmentSrv.newSegment(parts[1]);
       } else {
         this.schemaSegment = uiSegmentSrv.newSegment({ value: 'select schema', fake: true });
         this.tableSegment = uiSegmentSrv.newSegment(this.target.table);
@@ -220,7 +220,7 @@ export class VerticaQueryCtrl extends QueryCtrl {
   }
 
   tableChanged() {
-    this.target.table = this.schemaSegment.value + "." + this.tableSegment.value;
+    this.target.table = this.schemaSegment.value + '.' + this.tableSegment.value;
     this.target.where = [];
     this.target.group = [];
     this.updateProjection();
@@ -303,10 +303,10 @@ export class VerticaQueryCtrl extends QueryCtrl {
     this.lastQueryMeta = null;
     this.lastQueryError = null;
 
-    const anySeriesFromQuery = _.find(dataList, { refId: this.target.refId });
-    if (anySeriesFromQuery) {
-      this.lastQueryMeta = anySeriesFromQuery.meta;
-    }
+    // const anySeriesFromQuery = _.find(dataList, { refId: this.target.refId });
+    // if (anySeriesFromQuery) {
+    //   this.lastQueryMeta = anySeriesFromQuery.meta;
+    // }
   }
 
   onDataError(err) {
