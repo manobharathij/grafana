@@ -84,7 +84,7 @@ export class VerticaMetaQuery {
         WHERE
           c.table_schema = t.table_schema AND
           c.table_name = t.table_name AND
-          c.data_type IN ('timestamp','timestamptz')
+          c.data_type IN ('timestamp','timestamptz','int')
         ORDER BY ordinal_position LIMIT 1
       ) AS time_column,
       ( SELECT
@@ -174,7 +174,7 @@ export class VerticaMetaQuery {
     switch (type) {
       case 'time': {
         query +=
-          " AND a.data_type IN ('timestamp','timestamptz')";
+          " AND a.data_type IN ('timestamp','timestamptz','int')";
           break;
       }
       case 'metric': {
