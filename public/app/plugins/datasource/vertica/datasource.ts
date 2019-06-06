@@ -2,7 +2,7 @@ import _ from 'lodash';
 import ResponseParser from './response_parser';
 import VerticaQuery from './vertica_query';
 
-export default class VerticaDataSource  {
+export class VerticaDatasource {
   id: number;
   name: string;
   instanceSettings: any;
@@ -123,14 +123,13 @@ export default class VerticaDataSource  {
         },
       })
       .then(data => this.responseParser.transformAnnotationResponse(options, data));
-
   }
 
   testDatasource() {
     return this.metricFindQuery('SELECT VERSION()', {})
       .then(res => {
         this.instanceSettings.jsonData.verticaVersion = res[0].text;
-        return { status: 'success', message: 'Connection to ' + res[0].text + " successful!"};
+        return { status: 'success', message: 'Connection to ' + res[0].text + ' successful!' };
       })
       .catch(err => {
         if (err.data && err.data.message) {
@@ -141,4 +140,3 @@ export default class VerticaDataSource  {
       });
   }
 }
-
