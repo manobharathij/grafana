@@ -192,8 +192,6 @@ export class VerticaQueryCtrl extends QueryCtrl {
         yesText: 'Switch',
         onConfirm: () => {
           this.target.rawQuery = !this.target.rawQuery;
-          this.target.where = [];
-          this.updateProjection();
         },
       });
     } else {
