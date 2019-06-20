@@ -97,7 +97,7 @@ export default class VerticaQuery {
   }
 
   hasUnixEpochTimecolumn() {
-    return ['int4', 'int8', 'float4', 'float8', 'numeric'].indexOf(this.target.timeColumnType) > -1;
+    return ['int4', 'int8', 'int', 'float4', 'float8', 'float', 'numeric'].indexOf(this.target.timeColumnType) > -1;
   }
 
   buildTimeColumn(alias = true) {
