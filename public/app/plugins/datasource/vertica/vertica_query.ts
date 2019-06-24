@@ -120,7 +120,13 @@ export default class VerticaQuery {
       }
       query = macro + '(' + this.target.timeColumn + ',' + args + ')';
     } else {
-      query = this.target.timeColumn;
+      if (this.target.timeColumnType === 'int') {
+        macro = '$__timeEpoch';
+        alias = false;
+        query = macro + '(' + this.target.timeColumn + ')';
+      } else {
+        query = this.target.timeColumn;
+      }
       if (alias) {
         query += ' AS "time"';
       }
